@@ -3,7 +3,6 @@ import FormularioNuevaVenta from "./components/FormularioNuevaVenta";
 
 export default function HomePage() {
   return (
-    {/* Fondo con degradado dorado suave. Si prefieres plateado, cambia los "yellow" por "gray" (ej: from-gray-100 to-gray-300) */}
     <main className="min-h-screen bg-gradient-to-b from-yellow-50 to-yellow-200 text-black p-8">
       <h1 className="text-3xl font-bold mb-6 text-gray-900 drop-shadow-sm">Sistema TAVITAJOYAS</h1>
       
