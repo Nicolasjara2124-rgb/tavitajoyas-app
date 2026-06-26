@@ -18,8 +18,8 @@ export default function FormularioNuevaVenta() {
     setCargando(true);
     try {
       await addDoc(collection(db, 'ventas_credito'), {
-        nombre_clienta: datos.nombre, // CORREGIDO: Ahora coincide con la tabla
-        whatsapp_clienta: datos.whatsapp.replace(/\D/g, ''), // CORREGIDO: Ahora coincide con la tabla
+        nombre_clienta: datos.nombre,
+        whatsapp_clienta: datos.whatsapp.replace(/\D/g, ''),
         producto: datos.producto,
         monto_total: Number(datos.monto),
         saldo_pendiente: Number(datos.monto),
@@ -29,15 +29,13 @@ export default function FormularioNuevaVenta() {
         estado: 'pendiente'
       });
       
-      alert('¡Cuenta abierta en Tavitajoyas!');
-      
-      // Esto es lo que vacía automáticamente los textos después de guardar
+      // Limpiamos los datos INMEDIATAMENTE sin interrupciones de alertas
       setDatos({ nombre: '', whatsapp: '569', producto: '', monto: '', fecha: new Date().toISOString().split('T')[0] });
       
     } catch (error) {
-      console.error(error);
-      alert('Error al registrar');
+      console.error("Error al guardar en base de datos:", error);
     } finally {
+      // Forzamos que el botón se libere sí o sí
       setCargando(false);
     }
   };
