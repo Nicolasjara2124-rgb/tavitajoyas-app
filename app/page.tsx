@@ -1,14 +1,13 @@
-import FormularioNuevaVenta from './components/FormularioNuevaVenta';
-import TablaCobranzas from './components/TablaCobranzas';
+import TablaCobranzas from "./components/TablaCobranzas";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-pink-50 p-4">
-      <h1 className="text-center text-3xl font-bold text-black mb-8">Tavitajoyas</h1>
-      <FormularioNuevaVenta />
-      <div className="mt-8">
-        <TablaCobranzas />
-      </div>
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-6">Sistema TAVITAJOYAS</h1>
+      
+      {/* Aquí estamos "llamando" a tu componente para que se muestre en la portada */}
+      <TablaCobranzas />
+      
     </main>
   );
 }
