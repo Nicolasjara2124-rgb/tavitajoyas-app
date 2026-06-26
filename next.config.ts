@@ -1,8 +1,5 @@
 const nextConfig = {
-  // ... otras configuraciones que ya tengas
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-}
+  // Sin la parte de eslint
+};
 
-export default nextConfig
+export default nextConfig;
