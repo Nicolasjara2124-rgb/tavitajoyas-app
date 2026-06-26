@@ -18,8 +18,8 @@ export default function FormularioNuevaVenta() {
     setCargando(true);
     try {
       await addDoc(collection(db, 'ventas_credito'), {
-        nombre_cliente: datos.nombre,
-        whatsapp_cliente: datos.whatsapp.replace(/\D/g, ''),
+        nombre_clienta: datos.nombre, // CORREGIDO: Ahora coincide con la tabla
+        whatsapp_clienta: datos.whatsapp.replace(/\D/g, ''), // CORREGIDO: Ahora coincide con la tabla
         producto: datos.producto,
         monto_total: Number(datos.monto),
         saldo_pendiente: Number(datos.monto),
@@ -28,8 +28,12 @@ export default function FormularioNuevaVenta() {
         ultima_fecha_pago: datos.fecha,
         estado: 'pendiente'
       });
+      
       alert('¡Cuenta abierta en Tavitajoyas!');
+      
+      // Esto es lo que vacía automáticamente los textos después de guardar
       setDatos({ nombre: '', whatsapp: '569', producto: '', monto: '', fecha: new Date().toISOString().split('T')[0] });
+      
     } catch (error) {
       console.error(error);
       alert('Error al registrar');
